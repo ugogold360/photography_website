@@ -13,5 +13,7 @@ module.exports = {
         } else {
             res.redirect('/user/welcome');
         }
-    }
+    },
+
+    sessionSecret: 'thisismysecret'
 }
