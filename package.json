@@ -1,7 +1,7 @@
 {
-    "name": "login_template",
+    "name": "photography_website",
     "version": "1.0.0",
-    "description": "login template for future app development",
+    "description": "test photography website for my guy",
     "main": "app.js",
     "scripts": {
         "start": "node app.js"
@@ -14,10 +14,14 @@
         "connect-flash": "^0.1.1",
         "csurf": "^1.11.0",
         "express": "^4.17.1",
+        "express-fileupload": "^1.1.6",
         "express-handlebars": "^3.1.0",
         "express-session": "^1.17.0",
         "handlebars": "^4.7.3",
+        "method-override": "^3.0.0",
+        "moment": "^2.24.0",
         "mongoose": "^5.9.5",
+        "mongoose-url-slugs": "^1.0.2",
         "passport": "^0.4.1",
         "passport-local": "^1.0.0"
     }

@@ -1,3 +1,3 @@
 module.exports = {
-    mongoDBUrl: 'mongodb://localhost:27017/user_template' //EDIT DB NAME FOR CORESPONDING PROJECT
+    mongoDBUrl: 'mongodb://localhost:27017/photograhy_website'
 }

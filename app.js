@@ -7,7 +7,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 
-const { mongoDBUrl } = require('./config/DB/database'); // GO AND EDIT DB NAME FOR CORESPONDING PROJECT
+const { mongoDBUrl } = require('./config/DB/database');
 
 const { sessionSecret } = require('./config/utilityFunctions');
 
@@ -33,7 +33,7 @@ app.use(express.json());
 
 
 app.use(session({
-    secret: sessionSecret, //EXPORT AND IMPORT FROM CONFIG LATER ON
+    secret: sessionSecret,
     saveUninitialized: true,
     resave: true
 }));
@@ -50,12 +50,15 @@ app.use((req, res, next) => {
     res.locals.error_message = req.flash('error_message');
     next();
 });
+
+const home = require('./routes/home/index');
 const user = require('./routes/user/index');
 
+app.use('/', home);
 app.use('/user', user);
 
 
-const PORT = process.env.PORT || 4500;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
 });
