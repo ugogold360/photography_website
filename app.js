@@ -10,6 +10,7 @@ const passport = require('passport');
 const { mongoDBUrl } = require('./config/DB/database');
 
 const { sessionSecret } = require('./config/utilityFunctions');
+const { select, formatDate } = require('./config/helperFunctions');
 
 require('./config/passport');
 
@@ -24,7 +25,7 @@ mongoose.connect(mongoDBUrl, { useNewUrlParser: true, useUnifiedTopology: true }
 });
 app.use(express.static('./public'));
 
-app.engine('hbs', expHbs({ defaultLayout: 'home', extname: 'hbs', handlebars: allowInsecurePrototypeAccess(Handlebars) }));
+app.engine('hbs', expHbs({ defaultLayout: 'home', extname: 'hbs', helpers: { select: select, formatDate: formatDate }, handlebars: allowInsecurePrototypeAccess(Handlebars) }));
 
 app.set('view engine', 'hbs');
 

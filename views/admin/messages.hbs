@@ -25,7 +25,7 @@
             <td>{{fname}} {{lname}}</td>
             <td>{{subject}}</td>
             <td>{{email}}</td>
-            <td>{{createdAt}}</td>
+            <td>{{#formatDate createdAt 'MMMM Do, YYYY'}} {{/formatDate}}</td>
             <td><a href="/admin/message/{{_id}}">Read</a></td>
             <td>
 
