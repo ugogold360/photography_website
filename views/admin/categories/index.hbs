@@ -45,12 +45,12 @@
             <tbody>
                {{#each categories}}
                <tr>
-                  <td>{{this.name}}</td>
-                  <td>{{this.description}}</td>
-                  <td>{{formatDate this.createdAt 'MMMM Do YYYY'}}</td>
-                  <td> <a href="/admin/categories/edit/{{this.id}}" class="btn btn-info">Edit</a> </td>
+                  <td>{{name}}</td>
+                  <td>{{description}}</td>
+                  <td>{{formatDate createdAt 'MMMM Do YYYY'}}</td>
+                  <td> <a href="/admin/categories/edit/{{id}}" class="btn btn-info">Edit</a> </td>
             <td>
-                <form action="/admin/categories/delete/{{this.id}}?_method=DELETE" method="POST">
+                <form action="/admin/categories/delete/{{id}}?_method=DELETE" method="POST">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
