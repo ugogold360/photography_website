@@ -6,6 +6,7 @@ const expHbs = require('express-handlebars');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
+const methodOverride = require('method-override');
 
 const { mongoDBUrl } = require('./config/DB/database');
 
@@ -32,6 +33,7 @@ app.set('view engine', 'hbs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(methodOverride('_method'));
 
 app.use(session({
     secret: sessionSecret,

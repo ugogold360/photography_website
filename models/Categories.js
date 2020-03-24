@@ -8,16 +8,13 @@ const CategoriesSchema = new Schema({
         required: [true, 'Category Name is Required'],
         trim: true,
         minlength: 3,
-        maxlength: [20, 'The name of the category is too long'],
+        maxlength: [20, 'The name of the category is too long']
 
     },
 
     description: {
         type: String,
-        trim: true,
-        minlength: 3,
-        maxlength: 2000
-
+        trim: true
     },
     createdAt: {
         type: Date,
