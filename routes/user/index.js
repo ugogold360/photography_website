@@ -7,6 +7,11 @@ const { isLoggedin, isLoggedout } = require('../../config/utilityFunctions');
 const router = express.Router();
 const csrfProtection = csrf();
 
+router.all('/*', (req, res, next) => {
+    req.app.locals.layout = 'home';
+    next();
+});
+
 router.use(csrfProtection);
 
 router.get('/logout', isLoggedin, (req, res) => {

@@ -1,0 +1,50 @@
+<div class="container">
+   <div>
+      <h1>Messages</h1>
+
+{{> flash_messages}}
+
+<table class="table table-bordered">
+
+    <thead>
+    <tr>
+
+        <th>From</th>
+        <th>Subject</th>
+        <th>Email Address</th>
+        <th>Date</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+        {{#each messages}}
+
+        <tr>
+
+            <td>{{fname}} {{lname}}</td>
+            <td>{{subject}}</td>
+            <td>{{email}}</td>
+            <td>{{createdAt}}</td>
+            <td><a href="/admin/message/{{_id}}">Read</a></td>
+            <td>
+
+                <form action="/admin/posts/{{id}}?_method=DELETE" method="POST">
+
+                    <button type="submit" class="btn btn-danger">DELETE</button>
+                </form>
+
+
+
+            </td>
+
+        </tr>
+
+{{/each}}
+    </tbody>
+
+
+
+</table>
+   </div>
+</div>

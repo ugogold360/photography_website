@@ -1,0 +1,11 @@
+@media (min-width: 992px) {
+    #mainNav.navbar-dark .navbar-collapse .navbar-sidenav {
+        background: #000000;
+    }
+    span.nav-link-text {
+        color: #ffffff;
+    }
+    nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top {
+        color: #000000;
+    }
+}
