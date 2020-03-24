@@ -1,0 +1,70 @@
+<div class="container">
+   <div class="row">
+
+    <div class="col-md-8 col-lg-8 col-sm-12">
+        <h1>Create Category</h1>
+        {{> flash_messages}}
+        <form action="/admin/categories/create" method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" placeholder="Enter category name" class="form-control" autofocus>
+                </div>
+
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Add note..."></textarea>
+                </div>
+
+            <button class="btn btn-danger py-3 px-5 rounded">Create Category</button>
+        </form>
+    </div>
+
+    <br>
+
+    <hr>
+
+</div>
+
+<br>
+
+<div class="row">
+
+    <div class="col-md-12 col-lg-12 col-sm-12">
+
+        <h1>All Categories</h1>
+
+        <table class="table">
+
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Created on</th>
+
+            </tr>
+            </thead>
+            <tbody>
+               {{#each categories}}
+               <tr>
+                  <td>{{this.name}}</td>
+                  <td>{{this.description}}</td>
+                  <td>{{formatDate this.createdAt 'MMMM Do YYYY'}}</td>
+                  <td> <a href="/admin/categories/edit/{{this.id}}" class="btn btn-info">Edit</a> </td>
+            <td>
+                <form action="/admin/categories/{{this.id}}?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+               </tr>
+               {{/each}}
+            </tbody>
+        </table>
+
+
+
+    </div>
+
+
+
+</div>
+</div>

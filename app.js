@@ -54,10 +54,12 @@ app.use((req, res, next) => {
 const home = require('./routes/home/index');
 const user = require('./routes/user/index');
 const admin = require('./routes/admin/index');
+const categories = require('./routes/admin/categories/index');
 
 app.use('/', home);
 app.use('/user', user);
 app.use('/admin', admin);
+app.use('/admin/categories', categories);
 
 
 const PORT = process.env.PORT || 3000;
