@@ -15,6 +15,10 @@ router.get('/', (req, res) => {
     res.render('home/index');
 });
 
+router.get('/gallery', (req, res) => {
+    res.render('home/gallery');
+});
+
 router.get('/about', (req, res) => {
     res.render('home/about');
 });
