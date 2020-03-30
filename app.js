@@ -7,6 +7,8 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const methodOverride = require('method-override');
+const upload = require('express-fileupload');
+
 
 const { mongoDBUrl } = require('./config/DB/database');
 
@@ -29,6 +31,8 @@ app.use(express.static('./public'));
 app.engine('hbs', expHbs({ defaultLayout: 'home', extname: 'hbs', helpers: { select: select, formatDate: formatDate }, handlebars: allowInsecurePrototypeAccess(Handlebars) }));
 
 app.set('view engine', 'hbs');
+
+app.use(upload());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -58,11 +62,13 @@ const home = require('./routes/home/index');
 const user = require('./routes/user/index');
 const admin = require('./routes/admin/index');
 const categories = require('./routes/admin/categories/index');
+const pictures = require('./routes/admin/pictures/index');
 
 app.use('/', home);
 app.use('/user', user);
 app.use('/admin', admin);
 app.use('/admin/categories', categories);
+app.use('/admin/pictures', pictures);
 
 
 const PORT = process.env.PORT || 3000;

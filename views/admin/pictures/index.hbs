@@ -1,0 +1,43 @@
+<div class="container">
+   <h1>ALL PICTURES</h1>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+
+            <th>Image</th>
+            <th>Name</th>
+            <th>Status</th>
+             <th>Category</th>
+            <th>Date Created</th>
+             <th>Edit Details</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+{{#each pictures}}
+        <tr>
+            <td> <img src="/uploads/{{this.fileName}}" class="img img-center" height="200" width="350" alt="{{this.fileName}}"> </td>
+            <td>{{this.name}}</td>
+            <td>{{this.status}}</td>
+             <td>{{this.categories.name}}</td>
+            <td>{{formatDate this.createdAt 'MMMM Do YYYY'}}</td>
+            <td><a href="/admin/pictures/edit/{{this.id}}">Edit</a></td>
+       
+            <td>
+
+                <form action="/admin/pictures/delete/{{id}}?_method=DELETE" method="POST">
+
+                    <button type="submit" class="btn btn-danger">DELETE</button>
+                </form>
+
+
+
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+</div>

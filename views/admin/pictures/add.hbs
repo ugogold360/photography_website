@@ -1,0 +1,45 @@
+<div class="container">
+   <h1>Add Picture To Gallery</h1>
+
+<form action="/admin/pictures/add" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input name="name" value="{{body.name}}" type="text" class="form-control" id="name" placeholder="Name the picture" >
+    </div>
+
+    <div class="form-group">
+        <label for="fileName">Choose Picture To Upload</label>
+        <input type="file" name="fileName" class="form-control" value="{{body.fileName}}">
+    </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select name="category" id="category" class="form-control">
+            {{#select categories}}
+            {{#each categories}}
+            <option value="{{this.id}}">{{name}}</option>
+            {{/each}}
+            {{/select}}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="status">Status</label>
+        <select name="status" id="status" class="form-control">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+        </select>
+    </div>
+
+
+     <div class="form-group">
+       <label for="description">Description</label>
+       <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Add a note for this picture">{{body.description}}</textarea>
+     </div>
+
+
+    <button type="submit" class="btn btn-danger py-3 px-5 rounded">Add To Gallery</button>
+
+
+</form>
+</div>

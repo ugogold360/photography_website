@@ -1,5 +1,7 @@
 const express = require('express');
 const Messages = require('../../models/Messages');
+const Pictures = require('../../models/Pictures');
+const Categories = require('../../models/Categories');
 
 // const { isLoggedin, isLoggedout } = require('../../config/utilityFunctions');
 
@@ -15,8 +17,13 @@ router.get('/', (req, res) => {
     res.render('home/index');
 });
 
-router.get('/gallery', (req, res) => {
-    res.render('home/gallery');
+router.get('/gallery', async(req, res) => {
+    const pictures = await Pictures.find({})
+        .populate('categories');
+    const pictureNumber = pictures.length;
+    const categoryNumber = (await Categories.find({})).length;
+
+    res.render('home/gallery', { pictures, pictureNumber, categoryNumber });
 });
 
 router.get('/about', (req, res) => {

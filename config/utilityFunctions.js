@@ -15,5 +15,6 @@ module.exports = {
         }
     },
 
-    sessionSecret: 'thisismysecret'
+    sessionSecret: 'thisismysecret',
+    uploadDir: require('path').join(__dirname, '../public/uploads/')
 }
