@@ -13,7 +13,7 @@ const upload = require('express-fileupload');
 const { mongoDBUrl } = require('./config/DB/database');
 
 const { sessionSecret } = require('./config/utilityFunctions');
-const { select, formatDate } = require('./config/helperFunctions');
+const { select, formatDate, currentTitle } = require('./config/helperFunctions');
 
 require('./config/passport');
 
@@ -28,7 +28,7 @@ mongoose.connect(mongoDBUrl, { useNewUrlParser: true, useUnifiedTopology: true }
 });
 app.use(express.static('./public'));
 
-app.engine('hbs', expHbs({ defaultLayout: 'home', extname: 'hbs', helpers: { select: select, formatDate: formatDate }, handlebars: allowInsecurePrototypeAccess(Handlebars) }));
+app.engine('hbs', expHbs({ defaultLayout: 'home', extname: 'hbs', helpers: { select: select, formatDate: formatDate, currentTitle }, handlebars: allowInsecurePrototypeAccess(Handlebars) }));
 
 app.set('view engine', 'hbs');
 
@@ -55,6 +55,7 @@ app.use((req, res, next) => {
     res.locals.error = req.flash('error');
     res.locals.success_message = req.flash('success_message');
     res.locals.error_message = req.flash('error_message');
+    res.locals.session = req.session;
     next();
 });
 

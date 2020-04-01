@@ -14,28 +14,29 @@ router.all('/*', (req, res, next) => {
 
 
 router.get('/', (req, res) => {
-    res.render('home/index');
+    res.render('home/index', { title: 'Home', home: true });
 });
 
 router.get('/gallery', async(req, res) => {
     const pictures = await Pictures.find({})
-        .populate('categories');
+        .populate('categories')
+        .sort({ _id: -1 });
     const pictureNumber = pictures.length;
     const categoryNumber = (await Categories.find({})).length;
 
-    res.render('home/gallery', { pictures, pictureNumber, categoryNumber });
+    res.render('home/gallery', { pictures, pictureNumber, categoryNumber, title: 'Gallery' });
 });
 
 router.get('/about', (req, res) => {
-    res.render('home/about');
+    res.render('home/about', { title: 'About', about: true });
 });
 
 router.get('/contact', (req, res) => {
-    res.render('home/contact');
+    res.render('home/contact', { title: 'Contact', contact: true });
 });
 
 router.get('/services', (req, res) => {
-    res.render('home/services');
+    res.render('home/services', { title: 'Services', services: true });
 });
 
 

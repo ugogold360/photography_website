@@ -9,3 +9,29 @@
         color: #000000;
     }
 }
+
+
+/* .content-wrapper {
+    overflow-x: hidden;
+    background: rgba(52, 58, 64, 0.5);
+} */
+
+div#navbarResponsive.navbar-nav.navbar-sidenav {
+    background: rgba(52, 58, 64, 0.5);
+}
+
+ul#exampleAccordion.navbar-nav.navbar-sidenav {
+    background: rgba(52, 58, 64, 0.5);
+}
+
+span.nav-link-text {
+    color: #ffffff;
+}
+
+ul.navbar-nav.ml-auto {
+    background: rgba(52, 58, 64, 0.5);
+}
+
+nav#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top {
+    background: rgba(52, 58, 64, 0.5);
+}

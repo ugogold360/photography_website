@@ -2,13 +2,13 @@
         <div class="row align-items-center">
           
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0"><a href="/" class="text-black h2 mb-0">fotograp<span class="text-primary">.</span></a></h1>
+            <h1 class="mb-0"><a href="/" class="text-black h2 mb-0">Meaches Photography<span class="text-primary">.</span></a></h1>
           </div>
           <div class="col-10 col-md-8 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
 
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li class="active"><a href="/">Home</a></li>
+                <li {{#if home}} class="active" {{/if}}><a href="/">Home</a></li>
                 <li class="has-children">
                   <a href="/gallery">Gallery</a>
                   <ul class="dropdown">
@@ -17,10 +17,9 @@
                     <li><a href="/gallery">Wedding</a></li>
                   </ul>
                 </li>
-                <li><a href="/services">Services</a></li>
-                 <li><a href="/admin">Admin</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li{{#if services}} class="active" {{/if}}><a href="/services">Services</a></li>
+                <li{{#if about}} class="active" {{/if}}><a href="/about">About</a></li>
+                <li{{#if contact}} class="active" {{/if}}><a href="/contact">Contact</a></li>
               </ul>
             </nav>
           </div>

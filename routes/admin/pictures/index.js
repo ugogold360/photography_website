@@ -14,6 +14,7 @@ router.all('/*', (req, res, next) => {
 router.get('/', (req, res) => {
     Pictures.find({})
         .populate('categories')
+        .sort({ _id: -1 })
         .then((pictures) => {
 
             res.render('admin/pictures', { pictures });
